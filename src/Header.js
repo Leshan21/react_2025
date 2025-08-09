@@ -1,11 +1,12 @@
 import React from 'react'
 
 const Header = () => {
+  const heederStyle = {
+    backgroundColor: '#333',
+    color: '#fff'
+  }
   return (
-    <header style={{
-      backgroundColor: '#333',
-      color: '#fff'
-    }}>
+    <header style={heederStyle}>
         <h1>Groceries List</h1>
     </header>
   )
