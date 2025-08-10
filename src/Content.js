@@ -2,36 +2,35 @@ import React from 'react'
 import {useState} from 'react'
 
 export const Content = () => {
-    const [name, setName] = useState('leshan')
-    const [count, setCount] = useState(0);
-
-    const handleNameChange = () => {
-        const names = ['bob', 'kavin', 'dave'];
-        const int = Math.floor(Math.random() * 3)
-        setName(names[int]);
-    }
-
-    const handleClick = () => {
-      setCount(count + 1);
-      console.log(count);
-    }
-
-    const handleClick2 = (name) => {
-      console.log(`${name} was clicked`);
-    }
-    const handleClick3 = (e) => {
-      console.log(e.target.innerText);
-    }
+    const [items, setItems] = useState([
+      {
+        id: 1,
+        chacked: false,
+        item: "One half pound bag of cocoa Almonds Unsalted", 
+       },
+      {
+        id: 2,
+        chacked: false,
+        item: "Item 2", 
+       },
+      {
+        id: 3,
+        chacked: false,
+        item: "Item 3", 
+       },
+    ])
 
   return (
     <main>
-        <p>Hello {name} </p>
-        <p>Count {count}</p>
-        <button onClick={handleNameChange}>name change</button>
-        <button onClick={() => {
-          handleClick();
-        }}>click it</button>
-        <button onClick={(e) => {handleClick3(e)}}>click it</button>
+      <ul>
+        {items.map((item) => (
+          <li className="item" key={item.id}>
+            <input type="checkbox" checked={item.checked} />
+            <label>{item.item}</label>
+            <button>Delete</button>
+          </li>
+        ))}
+      </ul>
     </main>
   )
 }
