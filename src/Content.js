@@ -1,15 +1,19 @@
 import React from 'react'
+import {useState} from 'react'
 
 export const Content = () => {
+    const [name, setName] = useState('leshan')
+    const [count, setCount] = useState(0);
 
     const handleNameChange = () => {
         const names = ['bob', 'kavin', 'dave'];
         const int = Math.floor(Math.random() * 3)
-        return names[int];
+        setName(names[int]);
     }
 
     const handleClick = () => {
-      console.log('Button clicked');
+      setCount(count + 1);
+      console.log(count);
     }
 
     const handleClick2 = (name) => {
@@ -21,10 +25,11 @@ export const Content = () => {
 
   return (
     <main>
-        <p>Hello {handleNameChange()} </p>
-        <button onClick={handleClick}>click it</button>
+        <p>Hello {name} </p>
+        <p>Count {count}</p>
+        <button onClick={handleNameChange}>name change</button>
         <button onClick={() => {
-          handleClick2('bob');
+          handleClick();
         }}>click it</button>
         <button onClick={(e) => {handleClick3(e)}}>click it</button>
     </main>
