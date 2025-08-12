@@ -1,14 +1,25 @@
 import React from 'react'
 
 function counter() {
-    const count = 0;
+    const obj = {
+        count: 0,
+       
+    };
+
+
+
   const formatCount = () => {
-    return count === 0 ? <h1>Zero</h1> : count;
+    return obj.count === 0 ? "Zero" : obj.count;
   }
   return (
     <div>
-      <span>{formatCount()}</span>
-      <button>Increment</button>
+      
+      <span style={{
+        fontSize: 30,
+        fontWeight: 'bold',
+    
+      }} className='badge badge-primary m-2'>{formatCount()}</span>
+      <button className='btn btn-secondary btn-sm'>Increment</button>
     </div>
   )
 }
