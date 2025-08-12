@@ -6,7 +6,7 @@ function counter() {
        
     };
 
-
+  let classes = getBadgeClasses();
 
   const formatCount = () => {
     return obj.count === 0 ? "Zero" : obj.count;
@@ -18,10 +18,20 @@ function counter() {
         fontSize: 30,
         fontWeight: 'bold',
     
-      }} className='badge badge-primary m-2'>{formatCount()}</span>
+      }} className={classes}>{formatCount()}</span>
       <button className='btn btn-secondary btn-sm'>Increment</button>
     </div>
   )
+
+    function getBadgeClasses() {
+        let classes = "badge m-2";
+        if (obj.count === 0) {
+            classes += " bg-warning";
+        } else {
+            classes += " bg-primary";
+        }
+        return classes;
+    }
 }
 
 export default counter
