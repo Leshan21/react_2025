@@ -14,10 +14,6 @@ function counter() {
       return <ul>{obj.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>
     }
     
-    const handleEvnt = () => {
-
-      return <p>{data+=1}</p>
-    }
   return (
    <>
     {obj.tags.length === 0 && "Please create a new tag !"} 
