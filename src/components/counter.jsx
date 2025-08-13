@@ -1,15 +1,25 @@
-import React from 'react'
+import React, { use } from 'react'
+import { useState } from 'react';
 
 function counter() {
-    const count = 0;
-  const formatCount = () => {
-    return count === 0 ? <h1>Zero</h1> : count;
-  }
+    const obj = {
+        count: 0,
+        tags : []
+    };
+
+    const [data, setData] = useState(0);
+
+    const renderTags = () => {
+      if(obj.tags.length === 0 ) return <p>There are no tags !</p>;
+      return <ul>{obj.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>
+    }
+    
   return (
-    <div>
-      <span>{formatCount()}</span>
-      <button>Increment</button>
-    </div>
+   <>
+    {obj.tags.length === 0 && "Please create a new tag !"} 
+    {renderTags()}
+    <button onClick={handleEvnt} className='btn btn-secondary btn-sm'>btn</button>
+   </>
   )
 }
 
