@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { use } from 'react'
+import { useState } from 'react';
 
 function counter() {
     const obj = {
@@ -6,13 +7,16 @@ function counter() {
         tags : []
     };
 
+    const [data, setData] = useState(0);
+
     const renderTags = () => {
       if(obj.tags.length === 0 ) return <p>There are no tags !</p>;
       return <ul>{obj.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>
     }
     
     const handleEvnt = () => {
-      console.log("Button clicked");
+
+      return <p>{data+=1}</p>
     }
   return (
    <>
